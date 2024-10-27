@@ -17,10 +17,13 @@ public class MyClient extends UnicastRemoteObject implements ClientCallback{
             do {
                 System.out.println("Please enter an input: ");
                 textInput = scanner.nextLine();
+                if (textInput.isEmpty()) {
+                    break;
+                }
                 MyClient myClient = new MyClient();
                 System.out.println("Using RMI:" + stub.action(textInput));
                 stubWithCallback.action(textInput, myClient);
-            } while (!textInput.isEmpty());
+            } while (true);
         }catch(Exception e){System.out.println(e);}
     }
 
