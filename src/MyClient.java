@@ -1,7 +1,12 @@
 import java.rmi.*;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
-public class MyClient implements ClientCallback{
+public class MyClient extends UnicastRemoteObject implements ClientCallback{
+
+    protected MyClient() throws RemoteException {
+        super();
+    }
 
     public static void main(String[] args){
         try{
